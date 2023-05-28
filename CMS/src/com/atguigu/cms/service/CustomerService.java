@@ -22,27 +22,21 @@ public class CustomerService {
     public List<Customer> getList() {
 
         try {
-            return customerDao.findAll();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchFieldException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
+            return customerDao.queryList();
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
 
 
     /**
      * 用途：添加新客户
      * 参数：customer指定要添加的客户对象
      */
-    public void addCustomer(Customer customer) {
-
+    public void addCustomer(Customer customer)  {
         try {
-            customerDao.addCustomer(customer);
+            customerDao.insertCustomer(customer);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -56,14 +50,8 @@ public class CustomerService {
     public Customer getCustomer(int id) {
 
         try {
-            return customerDao.findById(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchFieldException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
+            return customerDao.queryById(id);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -74,21 +62,14 @@ public class CustomerService {
      * @param cust 对象
      * @return 修改成功返回true, false表明指定id的客户未找到
      */
-    public boolean modifyCustomer(int id, Customer cust) {
-
+    public boolean modifyCustomer(int id, Customer cust)  {
         int rows = 0;
         try {
-            rows = customerDao.updateById(cust);
+            rows = customerDao.updateCustomer(cust);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        //返回修改成功
-        if (rows == 0){
-            return false;
-        }
-
-        return true;
+        return rows > 0;
     }
 
     /**
@@ -99,15 +80,11 @@ public class CustomerService {
     public boolean removeCustomer(int id) {
         int rows = 0;
         try {
-            rows = customerDao.removeById(id);
+            rows = customerDao.deleteCustomer(id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        if (rows == 0){
-            return false;
-        }
-        return true;
+        return rows > 0;
     }
 
 }
