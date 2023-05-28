@@ -1,4 +1,6 @@
 ## 一、前言
+> - [bilibili-尚硅谷JDBC实战教程（2023最新版jdbc，JDK17+MySQL8）](https://www.bilibili.com/video/BV1sK411B71e/)
+> - [wolai-尚硅谷全新8.x版本JDBC数据库连接技术](https://www.wolai.com/atguigu/dEhsfqP4RazGM2fr2wpSeX)
 
 ### 1.1 课程需要哪些前置技术
 | 技术           | 版本   | 备注     |
@@ -1745,9 +1747,3 @@ public class CustomerDao extends BaseDao {
     }
 }
 ```
-
-
-
----
-- [bilibili-尚硅谷JDBC实战教程（2023最新版jdbc，JDK17+MySQL8）](https://www.bilibili.com/video/BV1sK411B71e/)
-- [wolai-尚硅谷全新8.x版本JDBC数据库连接技术](https://www.wolai.com/atguigu/dEhsfqP4RazGM2fr2wpSeX)
